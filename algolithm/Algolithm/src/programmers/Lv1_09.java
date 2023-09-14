@@ -3,6 +3,7 @@ package programmers;
 class Try09{
 	public int solution(String s) {
         int answer = 0;
+        answer = Integer.parseInt(s);
         return answer;
     }
 }
@@ -10,6 +11,6 @@ class Try09{
 public class Lv1_09 {
 	public static void main(String[] args) {
 		Try09 T = new Try09();
-		
+		System.out.println(T.solution("-1234"));
 	}
 }
