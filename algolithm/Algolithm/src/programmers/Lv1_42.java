@@ -1,17 +1,21 @@
 package programmers;
 
-// line 19~22 if문 - 이미 앞에 문자열이 서로 같은 값이 아닌 상태에서 뒤에 문자열이 더 크면 바로 break 잡아줘야 하는데 이거 생각하는데 쉽지 않았음...
+import java.util.Arrays;
 
 class Try42{
 	public int[] solution(int[] array, int[][] commands) {
-        int[] answer = {};
+        int[] answer = new int[commands.length];
         for(int i = 0; i < commands.length; ++i) {
-        	for(int j = 0; j < array.length; ++j) {
-        		int start = commands[i][0], end = commands[i][1];
-        		if(i < start || i > end) {
-        			
-        		}
+        	int start = commands[i][0]-1;
+        	int end = commands[i][1];
+        	int[] a = new int[end-start];
+        	int cnt = 0;
+        	for(int j = start; j < end; ++j) {
+        		a[cnt] = array[j];
+        		++cnt;
         	}
+        	Arrays.sort(a);
+        	answer[i] = a[commands[i][2]-1];
         }
         return answer;
     }
