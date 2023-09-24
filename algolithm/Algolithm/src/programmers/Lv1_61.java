@@ -12,7 +12,7 @@ class Try61 {
 		int cnt = 0;
 		XDfs(X);
 		YDfs(Y);
-		
+		StringBuilder sb = new StringBuilder();
 		for (int i = 9; i >= 0; --i) {
 			if (yMap.containsKey((char) (i + 48))) {
 				if (i == 0 && cnt == 0) {
@@ -20,16 +20,18 @@ class Try61 {
 				}
 				cnt++;
 				if (xMap.get((char) (i + 48)).length() >= yMap.get((char) (i + 48)).length()) {
-					answer += yMap.get((char) (i + 48));
+					sb.append(yMap.get((char) (i + 48)));
 				} else {
-					answer += xMap.get((char) (i + 48));
+					sb.append(xMap.get((char) (i + 48)));
 				}
 
 			}
 		}
+		
 		if (cnt == 0) {
 			answer = -1 + "";
-		}
+		}else
+			answer = sb.toString();
 
 		return answer;
 	}
