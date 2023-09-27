@@ -1,45 +1,41 @@
 package programmers;
 
+import java.util.HashMap;
+
 class Try65 {
 	public int[] solution(String[] keymap, String[] targets) {
         int[] answer = new int[targets.length];
-        int keyCnt = 0;
-        int minKey = Integer.MAX_VALUE;
-        int tarCnt = 0;
+        
+        HashMap<Character, Integer> keyMap = new HashMap<>();
+        for(int i = 0; i < keymap.length; ++i) {
+        	int cnt = 0;
+        	for(char c : keymap[i].toCharArray()) {
+        		cnt++;
+        		if(!keyMap.containsKey(c)) {
+        			keyMap.put(c, cnt);
+        		}else {
+        			if(keyMap.get(c) > cnt) {
+        				keyMap.replace(c, cnt);
+        			}
+        		}
+        	}
+        }
         
         for(int i = 0; i < targets.length; ++i) {
-        	
-        	for(char x : targets[i].toCharArray()) {
-        		
-        		for(int j = 0; j < keymap.length; ++j) {
-        			
-        			for(char c : keymap[j].toCharArray()) {
-        				if(x == c) {
-        					++keyCnt;
-        					break;
-        				}
-        				++keyCnt;
-        				if(keyCnt == keymap[j].length()) {
-        					keyCnt = 0;
-        				}
-        			}
-        			
-        			if(keyCnt > 0) {
-        				minKey = Math.min(minKey, keyCnt);
-        				keyCnt = 0;
-        			}
-        			
-        			if(minKey > 1000000 && j == keymap.length-1) {
-        				answer[i] = -1;
-        			}else if(minKey < 1000000 && j == keymap.length-1) {
-        				tarCnt += minKey;
-        				minKey = Integer.MAX_VALUE;
-        			}
-        			
+        	int cnt = 0;
+        	int count = 0;
+        	for(char c : targets[i].toCharArray()) {
+        		if(keyMap.containsKey(c)) {
+        			count += keyMap.get(c);
+        		}else {
+        			cnt++;
+        			answer[i] = -1;
+        			break;
         		}
-        		
         	}
-        	
+        	if(cnt == 0) {
+        		answer[i] = count;
+        	}
         }
         
         return answer;
