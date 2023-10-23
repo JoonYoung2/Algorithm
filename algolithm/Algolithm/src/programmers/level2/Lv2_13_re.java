@@ -24,7 +24,7 @@ class Try13{
 	}
 }
 
-public class Lv2_13 {
+public class Lv2_13_re {
 	public static void main(String[] args) {
 		Try13 T = new Try13();
 		
