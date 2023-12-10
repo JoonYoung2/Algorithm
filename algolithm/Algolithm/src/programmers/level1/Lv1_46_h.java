@@ -26,9 +26,7 @@ class Try46{
 public class Lv1_46_h {
 	public static void main(String[] args) {
 		Try46 T = new Try46();
-		int[] a = {1, 3, 4, 6};
-		int[][] b = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
-//		for(int x : )
+
 		System.out.println(T.solution(2, 1, 20));
 	}
 }

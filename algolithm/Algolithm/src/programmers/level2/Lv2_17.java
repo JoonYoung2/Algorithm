@@ -3,6 +3,7 @@ package programmers.level2;
 class Try17{
 	public int solution(int k, int[] tangerine) {
         int answer = 0;
+        int x = 0;
         return answer;
     }
 }

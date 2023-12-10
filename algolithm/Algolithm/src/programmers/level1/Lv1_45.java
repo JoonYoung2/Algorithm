@@ -28,8 +28,7 @@ public class Lv1_45 {
 	public static void main(String[] args) {
 		Try45 T = new Try45();
 		int[] a = {1, 3, 4, 6};
-		int[][] b = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
-//		for(int x : )
+
 		System.out.println(T.solution(a));
 	}
 }

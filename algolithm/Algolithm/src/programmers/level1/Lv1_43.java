@@ -26,9 +26,6 @@ class Try43{
 public class Lv1_43 {
 	public static void main(String[] args) {
 		Try43 T = new Try43();
-		int[] a = {1, 5, 2, 6, 3, 7, 4};
-		int[][] b = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
-//		for(int x : )
 		for(int x : T.solution("banana"))
 		System.out.println(x);
 	}
