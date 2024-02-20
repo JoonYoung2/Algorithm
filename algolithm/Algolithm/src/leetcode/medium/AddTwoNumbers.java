@@ -48,6 +48,8 @@ class AddTwoNumbersSolution {
 
 public class AddTwoNumbers {
 	public static void main(String[] args) {
+		AddTwoNumbersSolution solution = new AddTwoNumbersSolution();
+		
 		int[] arr1 = {2,4,3,6,0,9,2}, arr2 = {5,6,4,9,3,1,7,3,2};
 		
 		int len1 = arr1.length;
@@ -63,7 +65,6 @@ public class AddTwoNumbers {
 		for(int i = 1; i < len2; ++i) {
 			l2 = new ListNode(arr2[i], l2);
 		}
-		AddTwoNumbersSolution solution = new AddTwoNumbersSolution();
 		
 		ListNode result = solution.addTwoNumbers(l1, l2);
 		
