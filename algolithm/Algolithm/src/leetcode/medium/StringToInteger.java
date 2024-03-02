@@ -1,6 +1,6 @@
 package leetcode.medium;
 
-class StringtoIntegerSolution {
+class StringToIntegerSolution {
     public int myAtoi(String s) {
         int answer = 0;
         String convert = "";
@@ -30,9 +30,9 @@ class StringtoIntegerSolution {
     }
 }
 
-public class StringtoInteger {
+public class StringToInteger {
 	public static void main(String[] args) {
-		StringtoIntegerSolution solution = new StringtoIntegerSolution();
+		StringToIntegerSolution solution = new StringToIntegerSolution();
 		String s = "42";
 		String s1 = "-42";
 		String s2 = "    -";
