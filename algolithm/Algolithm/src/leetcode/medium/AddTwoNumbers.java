@@ -11,38 +11,38 @@ class ListNode {
 
 class AddTwoNumbersSolution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode listNode = null;
-        String tmp = getListNumber(l1) + getListNumber(l2) + "";
-        String y = "";
-        for(int i = tmp.length()-1; i >= 0; --i) {
-        	y += tmp.charAt(i);
-        }
-        int sum = Integer.parseInt(y);
         
-        return getResult(sum);
+    	long val1 = getValue(l1);
+    	long val2 = getValue(l2);
+    	
+        long sumVal = val1 + val2;
+        System.out.println(sumVal);
+        ListNode result = setListNode(sumVal);
+        while(true) {
+        	System.out.print(result.val);
+        	if(result.next == null)
+        		break;
+        	
+        	result = result.next;
+        }
+        return result;
     }
     
-    private int getListNumber(ListNode listNumber) {
-    	String tmp = "";
-    	while(listNumber != null) {
-    		tmp += listNumber.val;
-    		listNumber = listNumber.next;
+    private long getValue(ListNode listNode) {
+    	
+    	if(listNode.next == null) {
+    		return listNode.val;
     	}
-    	return Integer.parseInt(tmp);
+    	
+    	return getValue(listNode.next) * 10 + listNode.val;
     }
     
-    private ListNode getResult(int sum) {
-    	ListNode result = new ListNode(sum%10);
-    	
-    	sum /= 10;
-    	
-    	while(sum != 0) {
-    		result = new ListNode(sum%10, result);
-    		
-    		sum /= 10;
+    private ListNode setListNode(long sumVal) {
+    	if(sumVal / 10 == 0) {
+    		return new ListNode((int)sumVal);
     	}
-    	
-    	return result;
+    	ListNode listNode = new ListNode((int)(sumVal % 10), setListNode(sumVal/10));
+    	return listNode;
     }
 }
 
@@ -50,26 +50,28 @@ public class AddTwoNumbers {
 	public static void main(String[] args) {
 		AddTwoNumbersSolution solution = new AddTwoNumbersSolution();
 		
-		int[] arr1 = {2,4,3,6,0,9,2}, arr2 = {5,6,4,9,3,1,7,3,2};
+		ListNode l1 = new ListNode(9);
+//		l1 = new ListNode(4, l1);
+//		l1 = new ListNode(2, l1);
 		
-		int len1 = arr1.length;
-		int len2 = arr2.length;
-		
-		ListNode l1 = new ListNode(arr1[0]);
-		ListNode l2 = new ListNode(arr2[0]);
-		
-		for(int i = 1; i < len1; ++i) {
-			l1 = new ListNode(arr1[i], l1);
-		}
-		
-		for(int i = 1; i < len2; ++i) {
-			l2 = new ListNode(arr2[i], l2);
-		}
+		ListNode l2 = new ListNode(9);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(9, l2);
+		l2 = new ListNode(1, l2);
 		
 		ListNode result = solution.addTwoNumbers(l1, l2);
 		
-		while(result != null) {
-			System.out.println(result.val);
+		while(true) {
+			
+			if(result.next == null)
+				break;
+			
 			result = result.next;
 		}
 	}
